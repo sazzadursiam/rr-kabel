@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\BlogCategoryController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\PhotoGalleryController;
 use App\Http\Controllers\Backend\ProductCategoryController;
@@ -45,6 +46,18 @@ Route::group(['prefix' => '/v1'], function () {
             Route::delete('/{id}/delete', [VideoGalleryController::class, 'destroy'])->name('video-gallery.detete');
         });
         /* ## ========== Video Gallery Route End ========== ## */
+
+
+        /* ## ========== Blog Category Route Start ========== ## */
+        Route::group(['prefix' => 'blog-category'], function () {
+            Route::get('/', [BlogCategoryController::class, 'index'])->name('blog-category');
+            Route::post('/store', [BlogCategoryController::class, 'store'])->name('blog-category.store');
+            Route::get('/{id}/show', [BlogCategoryController::class, 'show'])->name('blog-category.show');
+            Route::get('/{id}/edit', [BlogCategoryController::class, 'edit'])->name('blog-category.edit');
+            Route::put('/{id}/update', [BlogCategoryController::class, 'update'])->name('product-category.update');
+            Route::delete('/{id}/delete', [BlogCategoryController::class, 'destroy'])->name('blog-category.detete');
+        });
+        /* ## ========== Blog Category Route End ========== ## */
     });
 });
 

@@ -190,4 +190,5 @@ class VideoGalleryController extends Controller
             ]);
         }
     }
+    //
 }
