@@ -10,7 +10,10 @@
 
 # production
 /build
-
+/storage
+/vendor
+/bootstrap
+.env
 # misc
 .DS_Store
 .env.local
