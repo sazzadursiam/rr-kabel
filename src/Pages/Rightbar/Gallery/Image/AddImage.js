@@ -53,7 +53,7 @@ const AddImage = () => {
       file: event.target.files[0],
     });
   };
- 
+
   const [descValue, setDescValue] = useState();
 
   const [validated, setValidated] = useState(false);
@@ -75,13 +75,9 @@ const AddImage = () => {
     formdata.append("description", description);
 
     axios
-      .post(
-        `${BACKEND_BASE_URL}/api/v1/admin/photo-gallery/store`,
-        formdata,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
-      )
+      .post(`${BACKEND_BASE_URL}/api/v1/admin/photo-gallery/store`, formdata, {
+        headers: { "Content-Type": "multipart/form-data" },
+      })
       .then((response) => {
         if (response.data.status === 200) {
           Swal.fire({
@@ -108,9 +104,7 @@ const AddImage = () => {
           <Breadcrumb.Item active>Upload Image</Breadcrumb.Item>
         </Breadcrumb>
         <div className="ms-auto breadcrumb-item">
-          <Link to="/admin/AllImage">
-          All Image
-          </Link>
+          <Link to="/admin/images">All Image</Link>
         </div>
       </div>
 

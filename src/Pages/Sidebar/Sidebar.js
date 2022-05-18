@@ -18,7 +18,9 @@ const Sidebar = () => {
         {[false].map((expand) => (
           <Navbar key={expand} bg="light" expand={expand} className="mb-3">
             <Container>
-              <Navbar.Brand as={Link} to="">Navbar Offcanvas</Navbar.Brand>
+              <Navbar.Brand as={Link} to="">
+                Navbar Offcanvas
+              </Navbar.Brand>
               <Navbar.Toggle
                 aria-controls={`offcanvasNavbar-expand-${expand}`}
               />
@@ -42,10 +44,10 @@ const Sidebar = () => {
                         title="Image"
                         id={`offcanvasNavbarDropdown-expand-${expand}`}
                       >
-                        <NavDropdown.Item as={Link} to="allImage">
+                        <NavDropdown.Item as={Link} to="images">
                           All Image
                         </NavDropdown.Item>
-                        <NavDropdown.Item as={Link} to="addImage">
+                        <NavDropdown.Item as={Link} to="images/add-new">
                           Upload Image
                         </NavDropdown.Item>
                       </NavDropdown>
@@ -69,7 +71,9 @@ const Sidebar = () => {
                     <Nav.Link as={Link} to="gallery">
                       Gallery
                     </Nav.Link>
-                    <Nav.Link as={Link} to="">Link</Nav.Link>
+                    <Nav.Link as={Link} to="">
+                      Link
+                    </Nav.Link>
                   </Nav>
                   {/* <Form className="d-flex">
                                         <FormControl

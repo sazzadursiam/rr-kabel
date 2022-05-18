@@ -22,7 +22,6 @@ const AllVideo = () => {
 
   const [search, setSearch] = useState("");
   const [filteredItems, setFilteredItems] = useState([]);
-  
 
   //  Modal Section Data
   const [modalShow, setModalShow] = useState(false);
@@ -64,6 +63,8 @@ const AllVideo = () => {
 
   // Show Video Modal Func
   const videoShow = (videoUrl) => {
+    console.log("shoe video modal", videoModalShow);
+    console.log("Modal info", singleVideoValue);
     setVideoModalShow(true);
     setUrl(videoUrl);
   };
@@ -74,6 +75,8 @@ const AllVideo = () => {
       .get(`${BACKEND_BASE_URL}/api/v1/admin/video-gallery/${id}/show`)
       .then((res) => {
         setSingleVideoValue(res.data.video_gallery);
+        console.log("shoe video modal", videoModalShow);
+        console.log("Modal info", singleVideoValue);
         setModalShow(true);
       });
   };
@@ -81,12 +84,11 @@ const AllVideo = () => {
   // Get All Video
   const renderAllVideo = async () => {
     try {
-      await axios 
+      await axios
         .get(`${BACKEND_BASE_URL}/api/v1/admin/video-gallery`)
         .then((res) => {
           setVideos(res.data.videos);
           setFilteredItems(res.data.videos);
-
 
           console.log(res.data.videos);
         });
@@ -98,8 +100,8 @@ const AllVideo = () => {
   // Column Data
   const columns = [
     {
-      name: '#',
-      cell: (row, index) => index + 1  //RDT provides index by default
+      name: "#",
+      cell: (row, index) => index + 1, //RDT provides index by default
     },
     {
       name: "Title",
@@ -264,8 +266,8 @@ const AllVideo = () => {
         </div>
 
         {/* View Modal */}
+
         <Modal
-          show={modalShow}
           size="lg"
           aria-labelledby="contained-modal-title-vcenter"
           centered
@@ -293,6 +295,7 @@ const AllVideo = () => {
         </Modal>
 
         {/* Video Showing Modal */}
+
         <Modal
           show={videoModalShow}
           size="lg"

@@ -21,8 +21,8 @@ function App() {
             <Route path="viewproduct" element={<Products />} />
             <Route path="addproduct" element={<AddProduct />} />
 
-            <Route path="allImage" element={<AllImage />} />
-            <Route path="addImage" element={<AddImage />} />
+            <Route path="images" element={<AllImage />} />
+            <Route path="images/add-new" element={<AddImage />} />
             <Route path="edit-image/:id" element={<EditImage />} />
 
             <Route path="all-video" element={<AllVideo />} />

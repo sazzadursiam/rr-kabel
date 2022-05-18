@@ -59,7 +59,7 @@ const AllImage = () => {
     axios
       .get(`${BACKEND_BASE_URL}/api/v1/admin/photo-gallery/${id}/show`)
       .then((res) => {
-        // console.log(res.data);
+        console.log(res.data);
         setSingleImageValue(res.data.single_photo);
         setModalShow(true);
         console.log("Value", singleImageValue.title);
@@ -186,28 +186,21 @@ const AllImage = () => {
 
   return (
     <div className="page-wrapper">
-      <Breadcrumb className="breadcrumb-wrapper">
-        <Breadcrumb.Item as={Link} to="admin" className="breadcrumb-item">
-          Dashboard
-        </Breadcrumb.Item>
+      <div className="breadcrumb-wrapper d-flex">
+        <Breadcrumb>
+          <Breadcrumb.Item as={Link} to="admin" className="breadcrumb-item">
+            Dashboard
+          </Breadcrumb.Item>
 
-        <Breadcrumb.Item active>All Image</Breadcrumb.Item>
-      </Breadcrumb>
+          <Breadcrumb.Item active>All Image</Breadcrumb.Item>
+        </Breadcrumb>
+        <div className="ms-auto breadcrumb-item">
+          <Link to="/admin/images/add-new">Add New Image</Link>
+        </div>
+      </div>
       <div className="admin-card">
         <div className="admin-card-body">
           <div className="row">
-            {/* {result.map((data, index) => (
-              <>
-                <div className="col-md-6 col-lg-4 col-xl-3 mt-5">
-                  <h4>{data.title}</h4>
-                  <div className="img-title">{data.title}</div>
-                  <div>
-                    <img src={`https://rrkabel.trodad.com` + data.image} alt="" />
-                  </div>
-                  <p className="lead">{data.desc}</p>
-                </div>
-              </>
-            ))} */}
             <DataTable
               title="Image List"
               columns={columns}
@@ -251,12 +244,11 @@ const AllImage = () => {
           </Modal.Header>
           <Modal.Body>
             <div className="text-center">
-
-            <img
-              className="mb-2 img-thumbnail"
-              src={`${BACKEND_BASE_URL}${singleImageValue.image}`}
-              alt={singleImageValue.title}
-            />
+              <img
+                className="mb-2 img-thumbnail"
+                src={`${BACKEND_BASE_URL}${singleImageValue.image}`}
+                alt={singleImageValue.title}
+              />
             </div>
             {Parser(singleImageValue.description)}
           </Modal.Body>

@@ -116,7 +116,7 @@ const EditImage = () => {
           <Breadcrumb.Item active>Edit Image</Breadcrumb.Item>
         </Breadcrumb>
         <div className="ms-auto breadcrumb-item">
-          <Link to="/admin/AllImage">All Image</Link>
+          <Link to="/admin/images">All Image</Link>
         </div>
       </div>
 
