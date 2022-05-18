@@ -100,12 +100,12 @@ class PhotoGalleryController extends Controller
     //show single photo gallery
     public function show($id)
     {
-        $single_photo_gallery = PhotoGallery::find($id);
+        $single_photo = PhotoGallery::find($id);
 
-        if ($single_photo_gallery) {
+        if ($single_photo) {
             return response()->json([
                 'status' => 200,
-                'single_photo_gallery' => $single_photo_gallery,
+                'single_photo' => $single_photo,
             ]);
         } else {
             return response()->json([
@@ -118,12 +118,12 @@ class PhotoGalleryController extends Controller
     // Edit photo gallery
     public function edit($id)
     {
-        $single_phpto_gallery = PhotoGallery::find($id);
+        $single_photo = PhotoGallery::find($id);
 
-        if ($single_phpto_gallery) {
+        if ($single_photo) {
             return response()->json([
                 'status' => 200,
-                'single_phpto_gallery' => $single_phpto_gallery,
+                'single_photo' => $single_photo,
             ]);
         } else {
             return response()->json([
